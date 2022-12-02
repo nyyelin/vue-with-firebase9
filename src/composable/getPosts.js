@@ -1,6 +1,6 @@
 import { reactive, ref } from "@vue/reactivity";
 import { db } from "../firebase/config";
-import { collection, getDocs, orderBy, query } from "firebase/firestore/lite";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
 let getPosts = () => {
   let posts = ref([]);

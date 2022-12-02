@@ -1,6 +1,6 @@
 import { reactive, ref } from "@vue/reactivity";
 import { db } from "../firebase/config";
-import { doc, collection, getDoc } from "firebase/firestore/lite";
+import { doc, collection, getDoc } from "firebase/firestore";
 let getPost = (id) => {
   let post = ref(null);
   let error = ref("");

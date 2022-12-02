@@ -19,7 +19,7 @@
 import { ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
 import {db} from "../firebase/config";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore/lite";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default {
   setup() {

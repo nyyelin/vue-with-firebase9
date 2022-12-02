@@ -18,7 +18,7 @@ import getPost from "../composable/getPost.js";
 import {useRoute} from "vue-router"
 import {useRouter} from "vue-router"
 import {db} from "../firebase/config"
-import { doc, deleteDoc } from "firebase/firestore/lite";
+import { doc, deleteDoc } from "firebase/firestore";
 
 export default {
   components: { Spinner },
