@@ -19,7 +19,7 @@
 import { ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
 import {db} from "../firebase/config";
-import { collection, addDoc } from "firebase/firestore/lite";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore/lite";
 
 export default {
   setup() {
@@ -39,6 +39,7 @@ export default {
         title: title.value,
         body: body.value,
         tags: tags.value,
+        created_at: serverTimestamp()
       };
       const data = collection(db, "posts");
       let res = await addDoc(data, newPost)

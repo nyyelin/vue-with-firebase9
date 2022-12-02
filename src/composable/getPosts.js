@@ -1,6 +1,6 @@
 import { reactive, ref } from "@vue/reactivity";
 import { db } from "../firebase/config";
-import { collection, getDocs } from "firebase/firestore/lite";
+import { collection, getDocs, orderBy, query } from "firebase/firestore/lite";
 
 let getPosts = () => {
   let posts = ref([]);
@@ -9,13 +9,13 @@ let getPosts = () => {
   let load = async () => {
     try {
       // firebase collection fetch
-      const data = collection(db, "posts");
+      const data = query(collection(db, "posts"),orderBy("created_at", "desc"));
 
       // firebase docs fetch
       const res = await getDocs(data);
 
       // map docs data
-      posts.value = res.docs.map(doc => {
+      posts.value = res.docs.map((doc) => {
         return {
           id: doc.id,
           ...doc.data(),
